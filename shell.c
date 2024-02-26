@@ -1,21 +1,19 @@
-#include <header.h>
+#include "main.h"
 
 int main(void)
 {
 	char *lineptr = NULL;
-	char *len = 0;
-	ssize_t nread;
+	ssize_t len = 0;
 
 	printf("$ ");
 
-	while ((nread = getline(&lineptr, &len, stdin))
+	while ((getline(&lineptr, &len, stdin) != EOF))
 			{
-				!= EOF
+			printf("%s", lineptr);
+			printf("$ ");
 			}
 
-	printf("%s", lineptr);
-	printf("$ ");
+			free(lineptr);
 
-
-
-}
+			return(0);
+			}
