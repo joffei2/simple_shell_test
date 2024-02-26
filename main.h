@@ -8,4 +8,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
+void arg(char **argv);
+char *path(char *command);
+
 #endif

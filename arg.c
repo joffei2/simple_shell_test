@@ -1,9 +1,19 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/wait.h>
-#include <sys/types.h>
+#include "main.h"
 
-int main(void)
+void arg(char **argv)
+{
+	char *cmd = NULL;
+
+	if (argv)
+	{
+		cmd = argv[0];
+
+		if (execve(cmd, argv, NULL) == -1)
+		{
+			perror("Error");
+		}
+	}
+}
 {
 	pid_t pid;
 	pid = fork();
